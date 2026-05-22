@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Koshish Admin Dashboard — Manage notices, events, team members, and site content.">
+  <title>Admin — Koshish</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23FAFAFA' stroke='%23FF6B35' stroke-width='6'/><text x='50' y='68' font-size='55' font-weight='900' text-anchor='middle' fill='%231A237E' font-family='sans-serif'>K</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="main-navbar">
+    <a href="index.html" class="navbar__brand">
+        <div class="navbar__logo">
+  <img src="./public/logo.jpg" alt="Koshish Logo">
+</div>
+      <span class="navbar__title">KOSHISH</span>
+    </a>
+    <div class="navbar__links">
+      <a href="index.html" class="navbar__link">Home</a>
+      <a href="notes.html" class="navbar__link">Notes</a>
+      <a href="events.html" class="navbar__link">Events</a>
+      <a href="team.html" class="navbar__link">Team</a>
+      <a href="admin.html" class="navbar__link active">Admin Login</a>
+    </div>
+    <button class="navbar__hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="mobile-drawer__close" aria-label="Close menu">✕</button>
+    <a href="index.html" class="mobile-drawer__link">Home</a>
+    <a href="notes.html" class="mobile-drawer__link">Notes</a>
+    <a href="events.html" class="mobile-drawer__link">Events</a>
+    <a href="team.html" class="mobile-drawer__link">Team</a>
+    <a href="admin.html" class="mobile-drawer__link active">Admin Login</a>
+  </div>
+
+  <!-- ═══ LOGIN SCREEN ═══ -->
+  <div class="admin-login" id="login-screen">
+    <div class="login-card">
+      <div class="login-card__logo">
+        <div class="login-card__logo-circle"><img src="./public/logo.jpg" alt="Koshish Logo"></div>
+        <span class="login-card__logo-text">KOSHISH</span>
+      </div>
+      <p class="login-card__title">Admin Dashboard Login</p>
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email</label>
+          <input class="form-input" type="email" id="login-email" placeholder="admin@koshish.org" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="login-password">Password</label>
+          <input class="form-input" type="password" id="login-password" placeholder="Enter your password" required>
+        </div>
+        <button class="btn btn--primary" type="submit" style="width: 100%; justify-content: center; margin-top: 8px;">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══ DASHBOARD ═══ -->
+  <div class="admin-layout" id="dashboard" style="display: none;">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="admin-sidebar__header">
+        <h3 class="admin-sidebar__title">Dashboard</h3>
+        <p class="admin-sidebar__subtitle">Manage your site</p>
+      </div>
+      <nav class="admin-sidebar__nav">
+        <a href="#" class="admin-sidebar__link active" data-section="notices">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Notices
+        </a>
+        <a href="#" class="admin-sidebar__link" data-section="notes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Notes
+        </a>
+        <a href="#" class="admin-sidebar__link" data-section="events">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          Events
+        </a>
+        <a href="#" class="admin-sidebar__link" data-section="team">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Team
+        </a>
+        <a href="#" class="admin-sidebar__link" data-section="content">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Site Content
+        </a>
+      </nav>
+      <div class="admin-sidebar__logout">
+        <button class="admin-sidebar__logout-btn" onclick="logout()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Sidebar Mobile Toggle -->
+    <button class="admin-sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+
+      <!-- ── NOTES SECTION ── -->
+      <div class="admin-section" id="section-notes">
+        <h2 class="admin-section__title">Notes</h2>
+        <p class="admin-section__desc">Manage class-wise notes and PDF links.</p>
+
+        <!-- Add Note Form -->
+        <div class="form-card">
+          <h3 class="form-card__title">Add/Update Note PDF</h3>
+          <form onsubmit="saveAdminNote(event)">
+            <div class="form-group">
+              <label class="form-label" for="note-class">Class</label>
+              <select class="form-select" id="note-class" required>
+                <option value="">Select Class...</option>
+                <option value="Class 6">Class 6</option>
+                <option value="Class 7">Class 7</option>
+                <option value="Class 8">Class 8</option>
+                <option value="Class 9">Class 9</option>
+                <option value="Class 10">Class 10</option>
+                <option value="Class 11">Class 11</option>
+                <option value="Class 12">Class 12</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="note-subject">Subject</label>
+              <input class="form-input" type="text" id="note-subject" placeholder="e.g., Math, Science" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="note-url">PDF URL (Google Drive, etc.)</label>
+              <input class="form-input" type="url" id="note-url" placeholder="https://..." required>
+            </div>
+            <button class="btn btn--primary" type="submit" id="note-add-btn">Save Note Link</button>
+          </form>
+        </div>
+
+        <!-- Notes List -->
+        <div class="form-card">
+          <h3 class="form-card__title">Current Notes Links</h3>
+          <div class="admin-list" id="admin-notes-list">
+            <!-- Loaded via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ── NOTICES SECTION ── -->
+      <div class="admin-section active" id="section-notices">
+        <h2 class="admin-section__title">Notices</h2>
+        <p class="admin-section__desc">Manage announcements shown on the home page notice board.</p>
+
+        <!-- Add Notice Form -->
+        <div class="form-card">
+          <h3 class="form-card__title">Add New Notice</h3>
+          <form onsubmit="addNotice(event)">
+            <div class="form-group">
+              <label class="form-label" for="notice-title">Title</label>
+              <input class="form-input" type="text" id="notice-title" placeholder="Notice title" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="notice-content">Content</label>
+              <textarea class="form-textarea" id="notice-content" placeholder="Notice content..." required></textarea>
+            </div>
+            <button class="btn btn--primary" type="submit">Add Notice</button>
+          </form>
+        </div>
+
+        <!-- Notices List -->
+        <div class="form-card">
+          <h3 class="form-card__title">Current Notices</h3>
+          <div class="admin-list" id="admin-notices-list">
+            <!-- Loaded via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ── EVENTS SECTION ── -->
+      <div class="admin-section" id="section-events">
+        <h2 class="admin-section__title">Events</h2>
+        <p class="admin-section__desc">Upload and manage photos for Udaan and Abhyuday.</p>
+
+        <!-- Upload Form -->
+        <div class="form-card">
+          <h3 class="form-card__title">Upload Event Photo</h3>
+          <form onsubmit="uploadEventPhoto(event)">
+            <div class="form-group">
+              <label class="form-label" for="event-select">Event</label>
+              <select class="form-select" id="event-select" onchange="onEventDropdownChange(this.value)">
+                <option value="udaan">Udaan — Technical Fest</option>
+                <option value="abhyuday">Abhyuday — Cultural Fest</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="event-file">Photo(s) (max 5 MB each)</label>
+              <input class="form-input" type="file" id="event-file" accept="image/*" multiple required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="event-caption">Caption (optional)</label>
+              <input class="form-input" type="text" id="event-caption" placeholder="Describe this photo...">
+            </div>
+            <div class="progress-bar" id="event-progress">
+              <div class="progress-bar__fill" id="event-progress-fill"></div>
+            </div>
+            <button class="btn btn--primary" type="submit" id="event-upload-btn">Upload Photo</button>
+          </form>
+        </div>
+
+        <!-- Gallery -->
+        <div class="form-card">
+          <h3 class="form-card__title">Uploaded Photos</h3>
+          <div class="admin-gallery" id="admin-events-gallery">
+            <!-- Loaded via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ── TEAM SECTION ── -->
+      <div class="admin-section" id="section-team">
+        <h2 class="admin-section__title">Team Members</h2>
+        <p class="admin-section__desc">Add, view, and remove team members.</p>
+
+        <!-- Add Member Form -->
+        <div class="form-card">
+          <h3 class="form-card__title">Add Team Member</h3>
+          <form onsubmit="addTeamMember(event)">
+            <div class="form-group">
+              <label class="form-label" for="team-name">Name</label>
+              <input class="form-input" type="text" id="team-name" placeholder="Full name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="team-role">Role</label>
+              <input class="form-input" type="text" id="team-role" placeholder="e.g., President, Mentor Lead..." required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="team-year">Year</label>
+              <select class="form-select" id="team-year" required>
+                <option value="">Select year...</option>
+                <option value="faculty">Faculty</option>
+                <option value="4th">4th Year</option>
+                <option value="3rd">3rd Year</option>
+                <option value="2nd">2nd Year</option>
+                <option value="1st">1st Year</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="team-photo">Photo (optional, max 5 MB)</label>
+              <input class="form-input" type="file" id="team-photo" accept="image/*">
+            </div>
+            <button class="btn btn--primary" type="submit" id="team-add-btn">Add Member</button>
+          </form>
+        </div>
+
+        <!-- Team List -->
+        <div class="form-card">
+          <h3 class="form-card__title">Current Members</h3>
+          <div id="admin-team-list">
+            <!-- Loaded via JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SITE CONTENT SECTION ── -->
+      <div class="admin-section" id="section-content">
+        <h2 class="admin-section__title">Site Content</h2>
+        <p class="admin-section__desc">Edit the text content displayed on the homepage.</p>
+
+        <!-- Hero Tagline -->
+        <div class="form-card">
+          <h3 class="form-card__title">Hero Tagline</h3>
+          <div class="form-group">
+            <label class="form-label" for="content-hero">Tagline Text</label>
+            <textarea class="form-textarea" id="content-hero" rows="2" placeholder="Enter hero tagline..." oninput="updatePreview('hero')"></textarea>
+          </div>
+          <div class="content-preview__label">Live Preview</div>
+          <div class="content-preview" id="preview-hero">Start typing to see preview...</div>
+          <button class="btn btn--primary mt-2" onclick="saveContent('hero')">Save Tagline</button>
+        </div>
+
+        <!-- Mission -->
+        <div class="form-card">
+          <h3 class="form-card__title">Mission Statement</h3>
+          <div class="form-group">
+            <label class="form-label" for="content-mission">Mission</label>
+            <textarea class="form-textarea" id="content-mission" rows="4" placeholder="Enter mission statement..." oninput="updatePreview('mission')"></textarea>
+          </div>
+          <div class="content-preview__label">Live Preview</div>
+          <div class="content-preview" id="preview-mission">Start typing to see preview...</div>
+          <button class="btn btn--primary mt-2" onclick="saveContent('mission')">Save Mission</button>
+        </div>
+
+        <!-- Vision -->
+        <div class="form-card">
+          <h3 class="form-card__title">Vision Statement</h3>
+          <div class="form-group">
+            <label class="form-label" for="content-vision">Vision</label>
+            <textarea class="form-textarea" id="content-vision" rows="4" placeholder="Enter vision statement..." oninput="updatePreview('vision')"></textarea>
+          </div>
+          <div class="content-preview__label">Live Preview</div>
+          <div class="content-preview" id="preview-vision">Start typing to see preview...</div>
+          <button class="btn btn--primary mt-2" onclick="saveContent('vision')">Save Vision</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

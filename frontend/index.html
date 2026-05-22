@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Koshish — A non-profit free education initiative run by engineering college students mentoring underprivileged children from Kindergarten to Class 12.">
+  <meta name="keywords" content="Koshish, free education, NGO, mentoring, underprivileged children, college students">
+  <meta name="author" content="Koshish">
+  <title>Koshish — Shaping Futures, One Lesson at a Time</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23FAFAFA' stroke='%23FF6B35' stroke-width='6'/><text x='50' y='68' font-size='55' font-weight='900' text-anchor='middle' fill='%231A237E' font-family='sans-serif'>K</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="main-navbar">
+    <a href="index.html" class="navbar__brand">
+      <div class="navbar__logo">
+  <img src="./public/logo.jpg" alt="Koshish Logo">
+</div>
+      <span class="navbar__title">KOSHISH</span>
+    </a>
+    <div class="navbar__links">
+      <a href="index.html" class="navbar__link active">Home</a>
+      <a href="notes.html" class="navbar__link">Notes</a>
+      <a href="events.html" class="navbar__link">Events</a>
+      <a href="team.html" class="navbar__link">Team</a>
+      <a href="admin.html" class="navbar__link">Admin Login</a>
+    </div>
+    <button class="navbar__hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="mobile-drawer__close" aria-label="Close menu">✕</button>
+    <a href="index.html" class="mobile-drawer__link active">Home</a>
+    <a href="notes.html" class="mobile-drawer__link">Notes</a>
+    <a href="events.html" class="mobile-drawer__link">Events</a>
+    <a href="team.html" class="mobile-drawer__link">Team</a>
+    <a href="admin.html" class="mobile-drawer__link">Admin Login</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__diagonal"></div>
+    <div class="hero__content">
+      <h1 class="hero__headline">
+        Shaping <span>Futures</span>, One Lesson at a Time
+      </h1>
+      <p class="hero__subtext" id="hero-subtext">
+        A community of passionate college students providing free, quality education to underprivileged children — from Kindergarten to Class 12 and beyond.
+      </p>
+      <div class="hero__actions">
+        <a href="team.html" class="btn btn--primary">Meet Our Team</a>
+        <a href="events.html" class="btn btn--outline">View Events</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS ═══ -->
+  <section class="stats" id="stats-section">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stat-card animate-on-scroll stagger-1">
+          <div class="stat-card__number" data-target="2000" data-suffix="+">0</div>
+          <div class="stat-card__label">Students Taught</div>
+        </div>
+        <div class="stat-card animate-on-scroll stagger-2">
+          <div class="stat-card__number" data-target="50" data-suffix="+">0</div>
+          <div class="stat-card__label">Mentors</div>
+        </div>
+        <div class="stat-card animate-on-scroll stagger-3">
+          <div class="stat-card__number" data-target="2" data-suffix="">0</div>
+          <div class="stat-card__label">Annual Events</div>
+        </div>
+        <div class="stat-card animate-on-scroll stagger-4">
+          <div class="stat-card__number" data-target="7" data-suffix="">0</div>
+          <div class="stat-card__label">Years of Impact</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="section" id="about-section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__badge">Who We Are</span>
+        <h2 class="section__title">Our <span>Purpose</span></h2>
+        <p class="section__subtitle">Driven by the belief that education should be free, accessible, and empowering.</p>
+      </div>
+      <div class="about__grid">
+        <div class="about-card animate-on-scroll stagger-1">
+          <div class="about-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3 class="about-card__title">Our Mission</h3>
+          <p class="about-card__text" id="mission-text">
+            To provide free, quality education to underprivileged children from Kindergarten to Class 12, guided by passionate college student mentors and faculty, empowering every learner to achieve their full potential.
+          </p>
+        </div>
+        <div class="about-card animate-on-scroll stagger-2">
+          <div class="about-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3 class="about-card__title">Our Vision</h3>
+          <p class="about-card__text" id="vision-text">
+            A world where every child has access to quality education regardless of their socio-economic background — where knowledge flows freely and opportunity knows no barriers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NOTICE BOARD ═══ -->
+  <section class="section section--alt" id="notices-section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__badge">Stay Updated</span>
+        <h2 class="section__title">Notice <span>Board</span></h2>
+        <p class="section__subtitle">Latest announcements and updates from the Koshish community.</p>
+      </div>
+      <div class="notice-board" id="notices-container">
+        <!-- Notices loaded via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EVENTS TEASER ═══ -->
+  <section class="section" id="events-teaser-section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__badge">Celebrate With Us</span>
+        <h2 class="section__title">Our <span>Events</span></h2>
+        <p class="section__subtitle">Two flagship events that bring creativity, learning, and joy together.</p>
+      </div>
+      <div class="event-teasers">
+        <!-- Udaan -->
+        <div class="event-teaser event-teaser--udaan animate-on-scroll stagger-1">
+          <div class="event-teaser__pattern"></div>
+          <div class="event-teaser__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          <h3 class="event-teaser__name">Udaan</h3>
+          <p class="event-teaser__sub">Technical Fest</p>
+          <p class="event-teaser__desc">A celebration of innovation, coding, robotics, and technical brilliance — where young minds take flight.</p>
+          <a href="events.html" class="event-teaser__btn">
+            View Gallery
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Abhyuday -->
+        <div class="event-teaser event-teaser--abhyuday animate-on-scroll stagger-2">
+          <div class="event-teaser__pattern"></div>
+          <div class="event-teaser__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <h3 class="event-teaser__name">Abhyuday</h3>
+          <p class="event-teaser__sub">Cultural Fest</p>
+          <p class="event-teaser__desc">A vibrant showcase of art, music, dance, and culture — where every student discovers their creative voice.</p>
+          <a href="events.html" class="event-teaser__btn">
+            View Gallery
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="navbar__brand" style="margin-bottom: 8px;">
+            <div class="navbar__logo">K</div>
+            <span class="navbar__title" style="color: var(--light);">KOSHISH</span>
+          </div>
+          <p class="footer__brand-text">
+            A non-profit free education initiative run by engineering college students, mentoring underprivileged children and shaping a brighter tomorrow.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="notes.html" class="footer__link">Notes</a>
+          <a href="events.html" class="footer__link">Events</a>
+          <a href="team.html" class="footer__link">Our Team</a>
+          <a href="admin.html" class="footer__link">Admin</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Events</h4>
+          <a href="events.html" class="footer__link">Udaan — Tech Fest</a>
+          <a href="events.html" class="footer__link">Abhyuday — Cultural Fest</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__contact">
+             <a href="mailto:koshish.edu@gmail.com">koshish.edu@gmail.com</a>
+            <p>📍Rajkiya engineering college ambedkar nagar, India</p>
+          </div>
+          <div class="footer__socials">
+            <a href="https://www.instagram.com/koshishwesociety?igsh=MW5qb2J4cWluajZvdQ==" class="footer__social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://youtube.com/@koshishwelfareoffical?si=Gvbf_Au_kf1wngJu" target="_blank" class="footer__social-icon" aria-label="YouTube">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M23.5 6.2a2.9 2.9 0 0 0-2-2C19.7 3.5 12 3.5 12 3.5s-7.7 0-9.5.7a2.9 2.9 0 0 0-2 2A30.6 30.6 0 0 0 0 12a30.6 30.6 0 0 0 .5 5.8 2.9 2.9 0 0 0 2 2c1.8.7 9.5.7 9.5.7s7.7 0 9.5-.7a2.9 2.9 0 0 0 2-2A30.6 30.6 0 0 0 24 12a30.6 30.6 0 0 0-.5-5.8zM9.8 15.5v-7l6.2 3.5-6.2 3.5z"/>
+  </svg>
+</a>
+            <a href="https://www.linkedin.com/company/koshishwelfare/" class="footer__social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 Koshish. All rights reserved. Made by Agam pandey .</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

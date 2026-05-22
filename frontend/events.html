@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the events hosted by Koshish — Udaan (Technical Fest) and Abhyuday (Cultural Fest). View our photo galleries.">
+  <title>Events — Koshish</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23FAFAFA' stroke='%23FF6B35' stroke-width='6'/><text x='50' y='68' font-size='55' font-weight='900' text-anchor='middle' fill='%231A237E' font-family='sans-serif'>K</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="main-navbar">
+    <a href="index.html" class="navbar__brand">
+      <div class="navbar__logo">
+  <img src="./public/logo.jpg" alt="Koshish Logo">
+</div>
+      <span class="navbar__title">KOSHISH</span>
+    </a>
+    <div class="navbar__links">
+      <a href="index.html" class="navbar__link">Home</a>
+      <a href="notes.html" class="navbar__link">Notes</a>
+      <a href="events.html" class="navbar__link active">Events</a>
+      <a href="team.html" class="navbar__link">Team</a>
+      <a href="admin.html" class="navbar__link">Admin Login</a>
+    </div>
+    <button class="navbar__hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="mobile-drawer__close" aria-label="Close menu">✕</button>
+    <a href="index.html" class="mobile-drawer__link">Home</a>
+    <a href="notes.html" class="mobile-drawer__link">Notes</a>
+    <a href="events.html" class="mobile-drawer__link active">Events</a>
+    <a href="team.html" class="mobile-drawer__link">Team</a>
+    <a href="admin.html" class="mobile-drawer__link">Admin Login</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="page-hero">
+    <h1 class="page-hero__title">Our Events</h1>
+    <p class="page-hero__subtitle">Celebrating learning, creativity, and innovation through our flagship events.</p>
+  </section>
+
+  <!-- ═══ TABS ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="tab-bar" id="event-tabs">
+        <button class="tab-btn active" data-event="udaan">🔧 Udaan — Technical Fest</button>
+        <button class="tab-btn" data-event="abhyuday">🌟 Abhyuday — Cultural Fest</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Photos loaded via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ LIGHTBOX ═══ -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" aria-label="Close lightbox">✕</button>
+    <button class="lightbox__nav lightbox__prev" aria-label="Previous image">‹</button>
+    <img class="lightbox__image" src="" alt="Event photo">
+    <button class="lightbox__nav lightbox__next" aria-label="Next image">›</button>
+    <div class="lightbox__caption"></div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="navbar__brand" style="margin-bottom: 8px;">
+            <div class="navbar__logo">K</div>
+            <span class="navbar__title" style="color: var(--light);">KOSHISH</span>
+          </div>
+          <p class="footer__brand-text">
+            A non-profit free education initiative run by engineering college students, mentoring underprivileged children and shaping a brighter tomorrow.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="notes.html" class="footer__link">Notes</a>
+          <a href="events.html" class="footer__link">Events</a>
+          <a href="team.html" class="footer__link">Our Team</a>
+          <a href="admin.html" class="footer__link">Admin</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Events</h4>
+          <a href="events.html" class="footer__link">Udaan — Tech Fest</a>
+          <a href="events.html" class="footer__link">Abhyuday — Cultural Fest</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__contact">
+            <a href="mailto:koshish.edu@gmail.com">koshish.edu@gmail.com</a>
+            <p>📍 Engineering College Campus, India</p>
+          </div>
+          <div class="footer__socials">
+            <a href="https://www.instagram.com/koshishwesociety?igsh=MW5qb2J4cWluajZvdQ==" class="footer__social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://youtube.com/@koshishwelfareoffical?si=Gvbf_Au_kf1wngJu" target="_blank" class="footer__social-icon" aria-label="YouTube">
+  <svg viewBox="0 0 24 24" fill="currentColor">
+    <path d="M23.5 6.2a2.9 2.9 0 0 0-2-2C19.7 3.5 12 3.5 12 3.5s-7.7 0-9.5.7a2.9 2.9 0 0 0-2 2A30.6 30.6 0 0 0 0 12a30.6 30.6 0 0 0 .5 5.8 2.9 2.9 0 0 0 2 2c1.8.7 9.5.7 9.5.7s7.7 0 9.5-.7a2.9 2.9 0 0 0 2-2A30.6 30.6 0 0 0 24 12a30.6 30.6 0 0 0-.5-5.8zM9.8 15.5v-7l6.2 3.5-6.2 3.5z"/>
+  </svg>
+</a>
+            <a href="https://www.linkedin.com/company/koshishwelfare/" class="footer__social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 Koshish. All rights reserved. Made by Agam Pandey.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/events.js"></script>
+</body>
+</html>
