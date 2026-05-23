@@ -45,8 +45,17 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: (origin, cb) => {
-      // Allow requests with no origin or 'null' (from file://) or if it's in the allowedOrigins list
-      if (!origin || origin === 'null' || allowedOrigins.includes(origin)) {
+      // Allow requests with no origin or 'null' (from file://)
+      if (!origin || origin === 'null') {
+        return cb(null, true);
+      }
+      
+      // Check if origin is in the allowed list or is a Vercel deployment
+      const isAllowed = allowedOrigins.includes(origin) || 
+                        origin.endsWith('.vercel.app') || 
+                        /https?:\/\/[a-zA-Z0-9-]+\.vercel\.app$/.test(origin);
+      
+      if (isAllowed) {
         cb(null, true);
       } else {
         cb(new Error(`CORS: Origin ${origin} not allowed`));
