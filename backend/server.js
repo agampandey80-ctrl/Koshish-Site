@@ -3,12 +3,12 @@
  * Express entry point with ASCII art banner, CORS, routes, and error handling.
  */
 
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 require('express-async-errors');
 
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -101,11 +101,13 @@ app.use((err, req, res, _next) => {
 // ─────────────────────────────────────────
 //  Start Server
 // ─────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log(banner);
-  console.log(`  🚀  Server running on http://localhost:${PORT}`);
-  console.log(`  📦  API base path: /api/`);
-  console.log('');
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(banner);
+    console.log(`  🚀  Server running on http://localhost:${PORT}`);
+    console.log(`  📦  API base path: /api/`);
+    console.log('');
+  });
+}
 
 module.exports = app;
