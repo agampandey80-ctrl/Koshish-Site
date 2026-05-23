@@ -5,20 +5,24 @@
  */
 
 const { createClient } = require('@supabase/supabase-js');
-const cors=require('cors')
-
 
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-if (!supabaseUrl || !supabaseServiceKey) {
-  console.error('❌  Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY in .env');
-  process.exit(1);
-}
+let supabase;
 
-const supabase = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: { autoRefreshToken: false, persistSession: false },
-});
+if (!supabaseUrl || !supabaseServiceKey) {
+  console.warn('⚠️  Warning: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY is missing. Database operations will fail.');
+  supabase = new Proxy({}, {
+    get: function(target, prop) {
+      throw new Error('Supabase is not configured. Please set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY in your environment/Vercel settings.');
+    }
+  });
+} else {
+  supabase = createClient(supabaseUrl, supabaseServiceKey, {
+    auth: { autoRefreshToken: false, persistSession: false },
+  });
+}
 
 module.exports = supabase;

@@ -19,7 +19,7 @@ function authMiddleware(req, res, next) {
   const token = authHeader.split(' ')[1];
   let decoded=null
   try {
-     decoded = jwt.verify(token, process.env.JWT_SECRET);
+     decoded = jwt.verify(token, process.env.JWT_SECRET || 'koshish_default_jwt_secret_key_2025');
     req.admin = decoded;
     next();
   } catch (err) {

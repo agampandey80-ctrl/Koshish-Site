@@ -55,7 +55,7 @@ async function login(req, res) {
 
   const token = jwt.sign(
     { id: adminId, email: adminEmail },
-    process.env.JWT_SECRET,
+    process.env.JWT_SECRET || 'koshish_default_jwt_secret_key_2025',
     { expiresIn: '8h' }
   );
 
