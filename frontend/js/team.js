@@ -49,17 +49,52 @@ async function loadTeam() {
     });
 
     let html = '';
+    const LIMIT = 12;
 
     YEAR_ORDER.forEach((year) => {
       if (!grouped[year] || grouped[year].length === 0) return;
 
       const config = TIER_CONFIG[year];
-      const membersHTML = grouped[year]
-        .map((member, index) => renderMemberCard(member, config.featured, index))
-        .join('');
+      const allMembers = grouped[year];
+
+      let membersHTML = '';
+      let collapsedHTML = '';
+      let toggleButtonHTML = '';
+
+      if (allMembers.length > LIMIT) {
+        // Show first LIMIT members
+        membersHTML = allMembers
+          .slice(0, LIMIT)
+          .map((member, index) => renderMemberCard(member, config.featured, index))
+          .join('');
+
+        // Put the rest in a collapsed grid container
+        const collapsedMembersHTML = allMembers
+          .slice(LIMIT)
+          .map((member, index) => renderMemberCard(member, config.featured, index + LIMIT))
+          .join('');
+
+        collapsedHTML = `
+          <div class="${config.gridClass} team-grid--collapsed" style="margin-top: 24px;">
+            ${collapsedMembersHTML}
+          </div>
+        `;
+
+        toggleButtonHTML = `
+          <div class="team-tier__toggle-container" style="text-align: center; margin-top: 32px;">
+            <button class="btn btn--secondary team-tier__toggle-btn" data-year="${year}">
+              Show All (${allMembers.length} Members)
+            </button>
+          </div>
+        `;
+      } else {
+        membersHTML = allMembers
+          .map((member, index) => renderMemberCard(member, config.featured, index))
+          .join('');
+      }
 
       html += `
-        <div class="team-tier animate-on-scroll">
+        <div class="team-tier animate-on-scroll" id="tier-${year}">
           <h3 class="team-tier__heading">
             <span>${config.label}</span>
           </h3>
@@ -67,11 +102,40 @@ async function loadTeam() {
           <div class="${config.gridClass}">
             ${membersHTML}
           </div>
+          ${collapsedHTML}
+          ${toggleButtonHTML}
         </div>`;
     });
 
     container.innerHTML = html;
     initScrollAnimations();
+
+    // Bind click events to the toggle buttons
+    container.querySelectorAll('.team-tier__toggle-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const year = btn.getAttribute('data-year');
+        const tierEl = document.getElementById(`tier-${year}`);
+        if (!tierEl) return;
+
+        const collapsedGrid = tierEl.querySelector('.team-grid--collapsed');
+        if (!collapsedGrid) return;
+
+        const isOpen = collapsedGrid.classList.toggle('open');
+        const count = grouped[year].length;
+
+        if (isOpen) {
+          btn.textContent = 'Show Less';
+          // Mark all elements inside the collapsed grid as visible immediately
+          collapsedGrid.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            el.classList.add('visible');
+          });
+        } else {
+          btn.textContent = `Show All (${count} Members)`;
+          // Scroll back to the top of this tier
+          tierEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
   } catch (err) {
     container.innerHTML = `
       <div class="empty-state" style="padding: 80px 24px;">
@@ -94,7 +158,7 @@ function renderMemberCard(member, featured, index) {
   const staggerClass = `stagger-${(index % 5) + 1}`;
 
   const avatarHTML = member.photo_url
-    ? `<img class="team-card__avatar" src="${member.photo_url}" alt="${escapeAttr(member.name)}" onerror="handleImageError(this, '${escapeAttr(member.name)}')">`
+    ? `<img class="team-card__avatar" src="${member.photo_url}" alt="${escapeAttr(member.name)}" loading="lazy" onerror="handleImageError(this, '${escapeAttr(member.name)}')">`
     : `<div class="team-card__initials">${initials}</div>`;
 
   const yearLabels = {
